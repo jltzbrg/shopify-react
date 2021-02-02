@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import Client from 'shopify-buy';
 
-const ShopContext = React.createContext;
-const ShopConsumer = ShopContext.Consumer;
+//Wenn eine Funktion aufgerufen, dann sollte man immer () hinterlegen!!
+const ShopContext = React.createContext();
 
 const client = Client.buildClient({
   domain: process.env.REACT_APP_SHOPIFY_DOMAIN,
   storefrontAccessToken: process.env.REACT_APP_SHOPIFY_API,
 });
 class ShopProvider extends Component {
-  state = {
-    product: {},
-    products: [],
-    checkout: {},
-    isCartOpen: false,
-    isMenuOpen: false,
-  };
+  constructor() {
+    super();
+    this.state = {
+      product: {},
+      products: [],
+      checkout: {},
+      isCartOpen: false,
+      isMenuOpen: false,
+    };
+  }
 
   componentDidMount() {
     this.createCheckout();
@@ -53,11 +56,15 @@ class ShopProvider extends Component {
 
   render() {
     console.log(this.state.checkout);
-
-    return <ShopContext.Provider>{this.props.children}</ShopContext.Provider>;
+    return (
+      <ShopContext.Provider value={{ ...this.props }}>
+        {this.props.children}
+      </ShopContext.Provider>
+    );
   }
 }
 
+const ShopConsumer = ShopContext.Consumer;
 export { ShopConsumer, ShopContext };
 
 export default ShopProvider;
