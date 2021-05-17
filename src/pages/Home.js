@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Box, Grid, Text, Image } from '@chakra-ui/react';
 import Hero from '../components/Hero';
 import ImageWithText from '../components/ImageWithText';
+import RichText from '../components/RichText';
 
 function Home() {
   const { fetchAllProducts, products } = useContext(ShopContext);
@@ -18,6 +19,10 @@ function Home() {
   return (
     <Box>
       <Hero />
+      <RichText
+        heading='The relaxation you’ve been waiting for.'
+        text='Our Bath bombs guarantee a fun, relaxing, and colorful night.'
+      />
       <Grid templateColumns='repeat(3, 1fr)'>
         {products.map((product) => (
           <Link to={`/products/${product.handle}`} key={product.id}>
@@ -36,6 +41,7 @@ function Home() {
           </Link>
         ))}
       </Grid>
+      <RichText heading='Treat Yourself!' />
       <ImageWithText
         image='https://cdn.shopify.com/s/files/1/0472/5705/9496/files/premium-bath-bombs.jpg?v=1610066758'
         heading='Heading'
