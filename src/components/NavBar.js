@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
-import { Flex, Icon, Image, Text } from '@chakra-ui/react';
-import ShopContext from '../context/shopContext';
+import { Flex, Icon, Image } from '@chakra-ui/react';
+import { ShopContext } from '../context/shopContext';
 import { MdMenu, MdShoppingBasket } from 'react-icons/md';
 const NavBar = () => {
-  //const { openCart, openMenu, checkout } = useContext(ShopContext);
+  const { openCart } = useContext(ShopContext);
+
   return (
     <Flex
       backgroundColor='#FFA8E2'
@@ -21,7 +22,9 @@ const NavBar = () => {
         cursor='pointer'
         as={MdShoppingBasket}
         w={30}
-        h={30}></Icon>
+        h={30}
+        onClick={() => openCart()}
+      />
     </Flex>
   );
 };
