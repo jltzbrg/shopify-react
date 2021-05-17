@@ -12,6 +12,7 @@ function Hero() {
         src='https://cdn.shopify.com/s/files/1/0472/5705/9496/files/Bath_Bomb_-_Product-4_-_nobg_1.png?v=1610055851.jpg'
       />
       <Text
+        className='tracking-in-expand'
         position='absolute'
         bottom='20%'
         w='100%'
