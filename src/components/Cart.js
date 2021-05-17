@@ -32,7 +32,7 @@ function Cart() {
             <DrawerCloseButton />
             <DrawerHeader>Your Shopping Cart</DrawerHeader>
             <DrawerBody>
-              {checkout.lineItems?.lenght ? (
+              {checkout.lineItems?.length ? (
                 checkout.lineItems.map((item) => (
                   <Grid templateColumns='repeat(4, 1fr)' gap={1} key={item.id}>
                     <Flex alignItems='center' justifyContent='center'>
@@ -66,7 +66,7 @@ function Cart() {
                 </Box>
               )}
             </DrawerBody>
-            {checkout.lineItems?.lenght ? (
+            {checkout.lineItems?.length ? (
               <DrawerFooter>
                 <Button w='100%'>
                   <Link w='100%' href={checkout.webUrl}>
