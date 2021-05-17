@@ -21,10 +21,17 @@ function Home() {
       <Grid templateColumns='repeat(3, 1fr)'>
         {products.map((product) => (
           <Link to={`/products/${product.handle}`} key={product.id}>
-            <Box _hover={{ opacity: '80%' }} textAlign='center'>
+            <Box
+              _hover={{ opacity: '80%' }}
+              textAlign='center'
+              position='relative'>
               <Image src={product.images[0].src} />
-              <Text>{product.title}</Text>
-              <Text>${product.variants[0].price}</Text>
+              <Text position='absolute' bottom='15%' w='100%' fontWeight='bold'>
+                {product.title}
+              </Text>
+              <Text position='absolute' bottom='5%' w='100%' color='gray'>
+                ${product.variants[0].price}
+              </Text>
             </Box>
           </Link>
         ))}
