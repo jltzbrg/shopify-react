@@ -10,7 +10,7 @@ function Home() {
     fetchAllProducts();
   }, [fetchAllProducts]);
 
-  console.log(products);
+  //console.log(products);
   if (!products) return <div>Loadings....</div>;
 
   return (
