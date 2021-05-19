@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, Text, Image, Center, Button } from '@chakra-ui/react';
+import { Box, Text, Image, Center, Button } from '@chakra-ui/react';
 
 function Hero() {
   return (
